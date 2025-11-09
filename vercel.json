@@ -1,8 +1,15 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/starhub/:path*",
-      "destination": "/api/starhub/:path*"
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/starhub/(.*)",
+      "dest": "/api/starhub/$1"
     }
   ]
 }
